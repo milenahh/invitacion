@@ -1,0 +1,202 @@
+* { box-sizing: border-box; }
+html,body { height: 100%; margin: 0; padding: 0; }
+
+body {
+  background: black;
+  font-family: 'Inter', Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+.hidden { display: none; }
+
+/* SOBRE */
+#envelope-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:black;
+}
+
+#envelope{
+  width:80vw;
+  max-width:300px;
+  cursor:pointer;
+  transition: transform .45s ease, opacity .45s ease;
+}
+
+#envelope.fade-out{
+  transform: scale(.6);
+  opacity: 0;
+}
+
+/* Lluvia dorada */
+#sparkle-container{
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 0;
+  overflow: hidden; /* evita scroll por canvas */
+}
+
+#sparkle-canvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  display:block;
+}
+
+/* Letrero inicial */
+#intro-message {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: gold;
+  padding-top: 40vh;
+  text-shadow: 0 0 10px rgba(255,215,0,0.8), 0 0 20px rgba(255,215,0,0.6);
+  animation: fadeIn 1.5s ease forwards;
+}
+
+#intro-message.fade-out {
+  animation: fadeOut 1s ease forwards;
+}
+
+/* Invitación final */
+#invitation {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: fadeIn 1.5s ease forwards;
+  color: white;
+  font-family: 'Georgia', serif;
+}
+
+/* Imagen centrada */
+#invitation img {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: block;
+  margin: 0 auto 30px auto;
+  max-width: 80px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+}
+
+/* Primer h1: EL ESFUERZO VALIO LA PENA */
+#invitation h1:first-of-type {
+  font-style: italic;
+  color: white;
+  font-size: 20px;
+  -webkit-text-stroke: 1px #bfa02f;
+  text-stroke: 1px #bfa02f;
+  margin-bottom: 0.1em;
+  font-family: 'Georgia', serif;
+}
+
+/* Segundo h1: MI GRADUACIÓN */
+#invitation h1:last-of-type {
+  font-style: italic;
+  color: white;
+  font-size: 2.0rem;
+  -webkit-text-stroke: 1px #bfa02f;
+  text-stroke: 1px #bfa02f;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-family: 'Georgia', serif;
+}
+
+/* h2 Culmine... con fuente más bonita */
+#invitation h2 {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 1em;
+  line-height: 1;
+  color: #f0e6c8;
+}
+
+/* Nombre con Dancing Script cursiva */
+#invitation p strong {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.3rem;
+  display: block;
+  margin-bottom: 0.8em;
+  color: white;
+  text-shadow: 0 0 5px rgba(191, 160, 47, 0.7);
+}
+
+/* Fecha en caja dorada con bordes redondeados */
+#invitation p.fecha-caja {
+  background-color: #bfa02f;
+  color: black;
+  font-weight: bold;
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-size: 0.7rem;
+  margin: 0.5em 0 1.5em 0;
+  box-shadow: 0 0 12px rgba(191, 160, 47, 0.8);
+}
+
+/* Botones con más estilo */
+.btn-link {
+  display: inline-block;
+  margin: 10px 15px 0 15px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #d4af37, #bfa02f);
+  color: black;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-decoration: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(191, 160, 47, 0.9);
+  transition: background 0.3s ease, color 0.3s ease;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  background: linear-gradient(135deg, #bfa02f, #8c7418);
+  color: white;
+  box-shadow: 0 6px 12px rgba(191, 160, 47, 1);
+  outline: none;
+}
+
+.nombre-cursiva {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 2.4rem;
+  color: white;
+  display: block;
+  margin-bottom: 0.8em;
+  text-shadow: 0 0 5px rgba(191, 160, 47, 0.7);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 480px) {
+  #envelope {
+    max-width: 150px; /* reduce tamaño máximo en pantallas pequeñas */
+    width: 70vw;       /* también puedes ajustar el ancho relativo */
+  }
+}
