@@ -147,6 +147,17 @@ body {
   margin: 0.5em 0 1.5em 0;
   box-shadow: 0 0 12px rgba(191, 160, 47, 0.8);
 }
+.fecha-caja {
+  display: block;
+  margin-bottom: 1.5em; /* separa la fecha de los botones */
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center; /* centra los botones horizontalmente */
+  gap: 20px; /* espacio entre los botones */
+  flex-wrap: wrap; /* para que en pantallas muy pequeñas puedan bajar */
+}
 
 /* Botones con más estilo */
 .btn-link {
